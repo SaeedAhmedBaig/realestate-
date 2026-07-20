@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import {
-  Youtube,
+  Globe,
   Instagram,
   Facebook,
   Mail,
@@ -13,23 +13,24 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Logo } from "@/components/site/logo";
+import { COMPANY as CO } from "@/lib/data";
 
 const COMPANY = [
   { label: "About us", href: "#about" },
-  { label: "Why choose us", href: "#benefits" },
-  { label: "Testimonial", href: "#testimonials" },
-  { label: "Properties", href: "#properties" },
+  { label: "Services", href: "#services" },
+  { label: "Projects", href: "#projects" },
+  { label: "Our clients", href: "#clients" },
 ];
 const RESOURCES = [
-  { label: "Privacy Policy", href: "#home" },
-  { label: "Terms & Condition", href: "#home" },
+  { label: "Why choose us", href: "#benefits" },
+  { label: "Our work", href: "#expertise" },
+  { label: "Get a quote", href: "#contact" },
   { label: "Contact us", href: "#contact" },
-  { label: "Careers", href: "#home" },
 ];
 const SOCIALS = [
-  { label: "YouTube", icon: Youtube, href: "https://youtube.com" },
-  { label: "Instagram", icon: Instagram, href: "https://instagram.com" },
-  { label: "Facebook", icon: Facebook, href: "https://facebook.com" },
+  { label: "Instagram", icon: Instagram, href: CO.social.instagram },
+  { label: "Facebook", icon: Facebook, href: CO.social.facebook },
+  { label: "Website", icon: Globe, href: CO.social.website },
 ];
 
 export function Footer() {
@@ -51,9 +52,10 @@ export function Footer() {
         <div className="rounded-3xl border border-border bg-card px-6 py-10 shadow-luxe sm:px-12">
           <div className="grid items-center gap-8 lg:grid-cols-[1fr_1.1fr]">
             <div>
-              <span className="eyebrow">Stay in the loop</span>
+              <span className="eyebrow">Start a project</span>
               <h2 className="headline mt-3 text-3xl text-foreground sm:text-4xl">
-                Subscribe for any <span className="text-gold italic">news updates</span>
+                Let&apos;s build something{" "}
+                <span className="text-gold italic">remarkable</span>
               </h2>
             </div>
             <form onSubmit={subscribe} className="flex flex-col gap-3 sm:flex-row">
@@ -91,18 +93,32 @@ export function Footer() {
             <div>
               <Logo inverted />
               <p className="mt-5 max-w-xs text-sm leading-relaxed text-obsidian-muted">
-                Asif Developer crafts and curates the world&apos;s finest residences —
-                pairing architectural mastery with white-glove service.
+                Since 2016, Aasif Developers has delivered villas, towers and
+                infrastructure across Pakistan — with a commitment to quality,
+                craftsmanship and reliable service.
               </p>
               <ul className="mt-6 space-y-3 text-sm text-obsidian-muted">
-                <li className="flex items-center gap-3">
-                  <MapPin className="size-4 text-accent" /> 5th Avenue, New York, USA
+                <li className="flex items-start gap-3">
+                  <MapPin className="mt-0.5 size-4 shrink-0 text-accent" />
+                  {CO.address}
                 </li>
                 <li className="flex items-center gap-3">
-                  <Phone className="size-4 text-accent" /> +1 (212) 555-0192
+                  <Phone className="size-4 shrink-0 text-accent" />
+                  <a
+                    href={`tel:${CO.phones[1].replace(/\s/g, "")}`}
+                    className="hover:text-obsidian-foreground"
+                  >
+                    {CO.phones[1]}
+                  </a>
                 </li>
                 <li className="flex items-center gap-3">
-                  <Mail className="size-4 text-accent" /> hello@asifdeveloper.com
+                  <Mail className="size-4 shrink-0 text-accent" />
+                  <a
+                    href={`mailto:${CO.email}`}
+                    className="hover:text-obsidian-foreground"
+                  >
+                    {CO.email}
+                  </a>
                 </li>
               </ul>
             </div>
@@ -135,11 +151,10 @@ export function Footer() {
           <div className="mt-12 rule-gold opacity-40" />
           <div className="flex flex-col items-center justify-between gap-4 pt-6 text-sm text-obsidian-muted sm:flex-row">
             <p>
-              © {new Date().getFullYear()} Asif Developer. All rights reserved.
+              © {new Date().getFullYear()} {CO.legalName}. All rights reserved.
             </p>
             <p>
-              Crafted with <span className="text-accent">precision</span> for
-              extraordinary living.
+              <span className="text-accent">Vision</span> · Creativity · Craftsmanship
             </p>
           </div>
         </div>

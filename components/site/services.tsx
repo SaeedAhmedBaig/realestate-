@@ -7,9 +7,9 @@ export function Services() {
     <section id="services" className="relative pt-20 sm:pt-24">
       <div className="container-luxe">
         <div className="mb-10 flex flex-col items-center text-center">
-          <span className="eyebrow">What we offer</span>
+          <span className="eyebrow">What we do</span>
           <h2 className="headline mt-4 text-3xl text-foreground sm:text-4xl">
-            Services crafted for <span className="text-gold italic">discerning owners</span>
+            End-to-end <span className="text-gold italic">construction expertise</span>
           </h2>
         </div>
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">

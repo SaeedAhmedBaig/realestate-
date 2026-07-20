@@ -83,10 +83,10 @@ export function Navbar() {
             )}
             asChild
           >
-            <a href="#contact">Login</a>
+            <a href="#projects">Projects</a>
           </Button>
           <Button variant="gold" size="sm" className="hidden md:inline-flex" asChild>
-            <a href="#contact">Sign up</a>
+            <a href="#contact">Get a Quote</a>
           </Button>
 
           <button
@@ -130,13 +130,13 @@ export function Navbar() {
           ))}
           <li className="mt-2 flex items-center gap-3 px-4">
             <Button variant="outline" className="flex-1" asChild>
-              <a href="#contact" onClick={() => setOpen(false)}>
-                Login
+              <a href="#projects" onClick={() => setOpen(false)}>
+                Projects
               </a>
             </Button>
             <Button variant="gold" className="flex-1" asChild>
               <a href="#contact" onClick={() => setOpen(false)}>
-                Sign up
+                Get a Quote
               </a>
             </Button>
             <ThemeToggle />

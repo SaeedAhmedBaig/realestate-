@@ -36,15 +36,15 @@ export function Logo({
             inverted ? "text-obsidian-foreground" : "text-foreground"
           )}
         >
-          ASIF <span className="text-gold">DEVELOPER</span>
+          AASIF <span className="text-gold">DEVELOPERS</span>
         </span>
         <span
           className={cn(
-            "text-[10px] font-medium uppercase tracking-[0.3em]",
+            "text-[10px] font-medium uppercase tracking-[0.28em]",
             inverted ? "text-obsidian-muted" : "text-muted-foreground"
           )}
         >
-          Luxury Estates
+          Construction &amp; Development
         </span>
       </span>
     </a>

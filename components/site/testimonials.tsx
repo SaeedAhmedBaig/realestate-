@@ -1,5 +1,5 @@
-import { Quote, Star } from "lucide-react";
-import { TESTIMONIALS } from "@/lib/data";
+import { ArrowUpRight, Building2 } from "lucide-react";
+import { CLIENTS } from "@/lib/data";
 import { Reveal } from "@/components/site/reveal";
 
 const BG =
@@ -7,7 +7,7 @@ const BG =
 
 export function Testimonials() {
   return (
-    <section id="testimonials" className="py-16">
+    <section id="clients" className="py-16">
       <div className="container-luxe">
         <div className="relative overflow-hidden rounded-[2rem]">
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -20,49 +20,49 @@ export function Testimonials() {
 
           <div className="relative px-6 pb-8 pt-16 sm:px-12 sm:pt-20">
             <Reveal>
-              <h2 className="headline max-w-2xl text-4xl text-obsidian-foreground sm:text-5xl">
-                See what our customers said{" "}
-                <span className="text-gold italic">about us</span>
+              <span className="eyebrow !text-accent">Our clients</span>
+              <h2 className="headline mt-4 max-w-2xl text-4xl text-obsidian-foreground sm:text-5xl">
+                Trusted by leading <span className="text-gold italic">developers</span>
               </h2>
             </Reveal>
 
             <div className="mt-12 grid gap-6 lg:grid-cols-3">
-              {TESTIMONIALS.map((t, i) => (
-                <Reveal key={t.name} delay={i * 0.1}>
-                  <figure className="flex h-full flex-col rounded-2xl border border-border bg-card p-6 shadow-luxe">
-                    <div className="flex items-center gap-4">
+              {CLIENTS.map((c, i) => (
+                <Reveal key={c.name} delay={i * 0.1}>
+                  <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-luxe">
+                    <div className="relative h-40 overflow-hidden">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
-                        src={t.avatar}
-                        alt={t.name}
-                        className="size-14 rounded-full border border-border object-cover"
+                        src={c.image}
+                        alt={`${c.name} project by Aasif Developers`}
+                        className="size-full object-cover"
                       />
-                      <figcaption>
-                        <p className="font-display text-lg font-semibold text-foreground">
-                          {t.name}
-                        </p>
-                        <p className="text-sm text-muted-foreground">{t.role}</p>
-                      </figcaption>
-                      <Quote className="ml-auto size-8 fill-primary/15 text-primary/30" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-obsidian/70 to-transparent" />
+                      <span className="absolute left-3 top-3 rounded-full bg-obsidian/70 px-3 py-1 text-xs font-medium text-obsidian-foreground backdrop-blur">
+                        {c.tag}
+                      </span>
                     </div>
 
-                    <div className="mt-4 flex gap-0.5">
-                      {Array.from({ length: 5 }).map((_, s) => (
-                        <Star
-                          key={s}
-                          className="size-4 fill-accent text-accent"
-                        />
-                      ))}
+                    <div className="flex flex-1 flex-col p-6">
+                      <div className="flex items-center gap-3">
+                        <span className="inline-flex size-11 items-center justify-center rounded-xl [background:var(--gold-gradient)] text-obsidian">
+                          <Building2 className="size-5" />
+                        </span>
+                        <h3 className="font-display text-xl font-semibold text-foreground">
+                          {c.name}
+                        </h3>
+                      </div>
+
+                      <p className="mt-4 flex-1 text-sm leading-relaxed text-muted-foreground">
+                        {c.scope}
+                      </p>
+
+                      <p className="mt-5 flex items-center gap-2 border-t border-border pt-4 text-sm font-semibold text-primary">
+                        <ArrowUpRight className="size-4" />
+                        {c.value}
+                      </p>
                     </div>
-
-                    <blockquote className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
-                      “{t.quote}”
-                    </blockquote>
-
-                    <p className="mt-5 border-t border-border pt-4 text-sm text-muted-foreground">
-                      Date: {t.date}
-                    </p>
-                  </figure>
+                  </article>
                 </Reveal>
               ))}
             </div>

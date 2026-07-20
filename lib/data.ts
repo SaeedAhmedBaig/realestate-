@@ -1,202 +1,250 @@
 import {
-  Home,
-  HandHeart,
-  MapPin,
-  Layers,
   Building2,
   Hammer,
-  Globe2,
+  Zap,
+  TrafficCone,
+  HardHat,
+  Ruler,
   ShieldCheck,
   Award,
+  Clock,
   Gem,
-  Search as SearchIcon,
+  Wrench,
+  Layers,
   type LucideIcon,
 } from "lucide-react";
 
 const U = (id: string, w = 1200) =>
   `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&q=80`;
 
+/* ------------------------------------------------------------------ */
+/* Company identity — from the official company profile               */
+/* ------------------------------------------------------------------ */
+
+export const COMPANY = {
+  name: "AASIF DEVELOPERS",
+  legalName: "AD Aasif Developers (Private) Limited",
+  tagline: "Vision, Creativity, Craftsmanship",
+  since: "2016",
+  ceo: "Aasif Malik",
+  domain: "aasifdevelopers.com",
+  email: "info@aasifdevelopers.com",
+  phones: ["+92 42 37825960", "+92 300 8522242", "+92 321 9423433"],
+  address:
+    "149 Umer Commercial, Second Floor, Suite No. 2, Sector B, Bahria Town, Lahore.",
+  social: {
+    instagram: "https://instagram.com/aasif.developers",
+    facebook: "https://facebook.com/aasif.developers",
+    website: "https://aasifdevelopers.com",
+  },
+};
+
 export const NAV_LINKS = [
   { label: "Home", href: "#home" },
+  { label: "About", href: "#about" },
   { label: "Services", href: "#services" },
-  { label: "Property", href: "#properties" },
-  { label: "Blogs", href: "#blog" },
-  { label: "Contact us", href: "#contact" },
+  { label: "Projects", href: "#projects" },
+  { label: "Contact", href: "#contact" },
 ];
 
-export const SERVICES: {
-  title: string;
-  icon: LucideIcon;
-  desc: string;
-}[] = [
+/* ------------------------------------------------------------------ */
+/* Services — derived from the scope of work across projects          */
+/* ------------------------------------------------------------------ */
+
+export const SERVICES: { title: string; icon: LucideIcon; desc: string }[] = [
   {
-    title: "Home inspections",
-    icon: Home,
-    desc: "White-glove structural and design audits before you ever sign.",
+    title: "Civil & Structural",
+    icon: Building2,
+    desc: "Excavation, foundations, RCC columns, beams and masonry executed to specification.",
   },
   {
-    title: "Property insurance",
-    icon: HandHeart,
-    desc: "Tailored coverage that protects your investment for generations.",
+    title: "Architectural Finishing",
+    icon: Hammer,
+    desc: "Plaster, tiling, marble, imported doors, kitchens, wardrobes and premium paintwork.",
   },
   {
-    title: "Best location",
-    icon: MapPin,
-    desc: "Access to addresses in the world's most coveted neighbourhoods.",
+    title: "MEP & Electrical",
+    icon: Zap,
+    desc: "Plumbing, wiring, HVAC, CCTV, fire detection, lifts and complete building services.",
   },
   {
-    title: "Lots & land",
-    icon: Layers,
-    desc: "Prime parcels ready for your architect's boldest vision.",
+    title: "Infrastructure",
+    icon: TrafficCone,
+    desc: "Roads, land leveling, sector development, earthworks and grid substation works.",
   },
 ];
 
-export const HELP_POINTS = [
-  "Property management",
-  "Construction Services",
-  "Online Services",
+/* ------------------------------------------------------------------ */
+/* About / mission                                                    */
+/* ------------------------------------------------------------------ */
+
+export const ABOUT_POINTS: { title: string; icon: LucideIcon }[] = [
+  { title: "Structural & Civil Works", icon: HardHat },
+  { title: "Turnkey Construction", icon: Wrench },
+  { title: "Finishing & Fit-out", icon: Layers },
 ];
 
-export const PROPERTIES = [
+/* ------------------------------------------------------------------ */
+/* Projects — real projects from the profile                          */
+/* ------------------------------------------------------------------ */
+
+export const PROJECTS = [
   {
-    id: "AD-4021",
-    title: "Azure Cliff Residence",
-    location: "New York, USA",
-    price: "$5,200,000",
-    beds: 8,
-    size: "10 × 10",
-    rooms: 6,
+    id: "AD-TWR-D",
+    title: "Bahria Heights",
+    client: "Bahria Town",
+    location: "Karachi",
+    type: "G+9 Tower",
+    scope: "Finishing Works",
+    value: "PKR 572.6M",
+    image: U("photo-1486406146926-c627a92ad1ab"),
+    tag: "Tower",
+  },
+  {
+    id: "AD-QIV",
+    title: "Quaid & Iqbal Villas",
+    client: "Bahria Town",
+    location: "Precinct 2, Karachi",
+    type: "150 Sq.Yd",
+    scope: "58 Villas",
+    value: "PKR 150.0M",
     image: U("photo-1512917774080-9991f1c4c750"),
-    tag: "Featured",
+    tag: "Villas",
   },
   {
-    id: "AD-4022",
-    title: "The Cedar Pavilion",
-    location: "New York, USA",
-    price: "$5,200,000",
-    beds: 8,
-    size: "10 × 10",
-    rooms: 6,
-    image: U("photo-1613490493576-7fde63acd811"),
-    tag: "New",
-  },
-  {
-    id: "AD-4023",
-    title: "Onyx Garden Villa",
-    location: "New York, USA",
-    price: "$5,200,000",
-    beds: 8,
-    size: "10 × 10",
-    rooms: 6,
+    id: "AD-P1011",
+    title: "Bahria Precinct 10 & 11",
+    client: "Bahria Town",
+    location: "Karachi",
+    type: "200 Sq.Yd",
+    scope: "200+ Villas",
+    value: "PKR 414.9M",
     image: U("photo-1600585154340-be6161a56a0c"),
-    tag: "Exclusive",
+    tag: "Villas",
   },
   {
-    id: "AD-4024",
-    title: "Willow Lane Estate",
-    location: "New York, USA",
-    price: "$5,200,000",
-    beds: 8,
-    size: "10 × 10",
-    rooms: 6,
+    id: "AD-MSV",
+    title: "Metro Supreme Villas",
+    client: "New Metro City",
+    location: "Gujjar Khan",
+    type: "5 & 8 Marla",
+    scope: "Turnkey Villas",
+    value: "PKR 215.6M",
+    image: U("photo-1613490493576-7fde63acd811"),
+    tag: "Villas",
+  },
+  {
+    id: "AD-ESV",
+    title: "Eiffel Supreme Villas",
+    client: "New Metro City",
+    location: "Sara-e-Alamgir",
+    type: "6 Marla",
+    scope: "Turnkey Villas",
+    value: "PKR 112.9M",
     image: U("photo-1600596542815-ffad4c1539a9"),
-    tag: "Featured",
+    tag: "Villas",
+  },
+  {
+    id: "AD-LNS",
+    title: "Lahore North Substation",
+    client: "China Electric Power",
+    location: "Sheikhupura",
+    type: "500/220/132 Kv",
+    scope: "Earthworks & Camp",
+    value: "PKR 261.3M",
+    image: U("photo-1473341304170-971dccb5ac1e"),
+    tag: "Infrastructure",
   },
 ];
 
-export const BENEFITS = [
-  "Trusted Developer",
-  "Outstanding properties",
-  "A safe and trustworthy",
-  "Buy with Confidence",
-  "Market Leading research",
-];
+/* ------------------------------------------------------------------ */
+/* Why choose us + figures                                            */
+/* ------------------------------------------------------------------ */
 
 export const WHY_POINTS: { title: string; icon: LucideIcon }[] = [
-  { title: "Trusted Developer", icon: ShieldCheck },
-  { title: "Outstanding properties", icon: Building2 },
-  { title: "A safe and trustworthy", icon: Award },
-  { title: "Buy with Confidence", icon: Gem },
+  { title: "Trusted since 2016", icon: ShieldCheck },
+  { title: "Licensed engineers & staff", icon: Award },
+  { title: "On-time, on-budget delivery", icon: Clock },
+  { title: "Superior craftsmanship", icon: Gem },
 ];
 
-export const HELP_ICONS: { title: string; icon: LucideIcon }[] = [
-  { title: "Property management", icon: Building2 },
-  { title: "Construction Services", icon: Hammer },
-  { title: "Online Services", icon: Globe2 },
+/* Hero trust figures (3) */
+export const HERO_STATS = [
+  { value: "8+", label: "Years building" },
+  { value: "450+", label: "Villas delivered" },
+  { value: "500+", label: "Skilled workforce" },
 ];
 
-export const BLOG_POSTS = [
+/* Benefits stat band (4) */
+export const STATS = [
+  { value: "8+", label: "Years experience" },
+  { value: "PKR 2.5B+", label: "Projects delivered" },
+  { value: "450+", label: "Villas built" },
+  { value: "500+", label: "Workforce" },
+];
+
+/* ------------------------------------------------------------------ */
+/* Capability gallery (repurposed "blog" masonry)                     */
+/* ------------------------------------------------------------------ */
+
+export const GALLERY = [
   {
-    title: "Designing kitchens that feel like heirlooms",
-    category: "Interiors",
-    date: "12 Apr 2026",
-    image: U("photo-1556909212-d5b604d0c90d"),
+    title: "RCC & structural works",
+    category: "Civil",
+    place: "Foundations to slab",
+    image: U("photo-1621905251189-08b45d6a269e"),
     size: "tall",
   },
   {
-    title: "The quiet luxury of a well-lit living room",
-    category: "Living",
-    date: "08 Apr 2026",
+    title: "Premium finishing & interiors",
+    category: "Finishing",
+    place: "Villas & towers",
     image: U("photo-1618221195710-dd6b41faaea6"),
     size: "wide",
   },
   {
-    title: "Why façade matters more than square footage",
-    category: "Architecture",
-    date: "02 Apr 2026",
-    image: U("photo-1600607687939-ce8a6c25118c"),
+    title: "Grid substation & earthworks",
+    category: "Infrastructure",
+    place: "Sheikhupura",
+    image: U("photo-1466611653911-95081537e5b7"),
     size: "tall",
   },
   {
-    title: "Ceilings that turn a room into a statement",
-    category: "Design",
-    date: "28 Mar 2026",
-    image: U("photo-1600566753086-00f18fb6b3ea"),
+    title: "Turnkey villa construction",
+    category: "Villas",
+    place: "Bahria Town & New Metro City",
+    image: U("photo-1600607687939-ce8a6c25118c"),
     size: "wide",
   },
 ];
 
-export const TESTIMONIALS = [
+/* ------------------------------------------------------------------ */
+/* Our clients — factual, from the profile                            */
+/* ------------------------------------------------------------------ */
+
+export const CLIENTS = [
   {
-    name: "Ariyana Aly",
-    role: "Top Customer",
-    date: "02-04-2022",
-    quote:
-      "Asif Developer found us a home we didn't think existed. The process felt less like a transaction and more like being introduced to a lifestyle.",
-    avatar: U("photo-1544005313-94ddf0286df2", 200),
+    name: "Bahria Town",
+    scope:
+      "Hundreds of villas across Precincts 2, 10, 11 & 31 and the G+9 Bahria Heights tower in Karachi.",
+    value: "PKR 2.3B+ delivered",
+    tag: "Villas & Towers",
+    image: U("photo-1512917774080-9991f1c4c750", 400),
   },
   {
-    name: "Marcus Reed",
-    role: "Investor",
-    date: "18-05-2022",
-    quote:
-      "Every detail was handled with a level of care I've never seen in real estate. Discreet, precise, and genuinely luxurious from first call to keys.",
-    avatar: U("photo-1500648767791-00dcc994a43e", 200),
+    name: "New Metro City",
+    scope:
+      "Metro Supreme and Eiffel Supreme villa communities at Gujjar Khan and Sara-e-Alamgir.",
+    value: "PKR 330M+ delivered",
+    tag: "Villa Communities",
+    image: U("photo-1613490493576-7fde63acd811", 400),
   },
   {
-    name: "Sofia Laurent",
-    role: "Homeowner",
-    date: "09-06-2022",
-    quote:
-      "From the private viewings to the final signature, the team made buying our dream house feel effortless and deeply personal.",
-    avatar: U("photo-1534528741775-53994a69daeb", 200),
+    name: "China Electric Power",
+    scope:
+      "Lahore North 500/220/132 Kv substation earthworks and turnkey site camp in Sheikhupura.",
+    value: "PKR 322M+ delivered",
+    tag: "Infrastructure",
+    image: U("photo-1473341304170-971dccb5ac1e", 400),
   },
 ];
-
-export const STATS = [
-  { value: "1.2K+", label: "Homes delivered" },
-  { value: "100+", label: "Expert team" },
-  { value: "39.9K", label: "Happy reviews" },
-  { value: "24", label: "Cities served" },
-];
-
-export const PROPERTY_TYPES = [
-  "Villa",
-  "Penthouse",
-  "Apartment",
-  "Townhouse",
-  "Estate",
-  "Land",
-];
-
-export { SearchIcon };

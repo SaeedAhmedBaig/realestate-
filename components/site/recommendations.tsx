@@ -3,7 +3,7 @@
 import * as React from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { ArrowRight, ArrowLeft } from "lucide-react";
-import { PROPERTIES } from "@/lib/data";
+import { PROJECTS } from "@/lib/data";
 import { PropertyCard } from "@/components/site/property-card";
 import { Reveal } from "@/components/site/reveal";
 import { cn } from "@/lib/utils";
@@ -30,14 +30,14 @@ export function Recommendations() {
   }, [embla, onSelect]);
 
   return (
-    <section id="properties" className="py-16">
+    <section id="projects" className="py-16">
       <div className="container-luxe">
         <Reveal>
           <div className="flex flex-wrap items-end justify-between gap-6">
             <div>
-              <span className="eyebrow">Curated for you</span>
+              <span className="eyebrow">Our portfolio</span>
               <h2 className="headline mt-4 text-4xl text-foreground sm:text-5xl">
-                Best <span className="text-gold italic">recommendations</span>
+                Featured <span className="text-gold italic">projects</span>
               </h2>
             </div>
             <div className="flex items-center gap-3">
@@ -63,7 +63,7 @@ export function Recommendations() {
 
         <div className="mt-10 overflow-hidden" ref={emblaRef}>
           <div className="flex gap-6">
-            {PROPERTIES.map((p, i) => (
+            {PROJECTS.map((p, i) => (
               <div
                 key={p.id}
                 className="min-w-0 shrink-0 grow-0 basis-[85%] sm:basis-[46%] lg:basis-[31%]"

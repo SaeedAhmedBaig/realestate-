@@ -4,7 +4,7 @@ import { Reveal } from "@/components/site/reveal";
 import { CountUp } from "@/components/site/count-up";
 
 const IMG =
-  "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1000&q=80";
+  "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1000&q=80";
 
 const AVATARS = [
   "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&q=80",
@@ -23,9 +23,9 @@ export function Benefits() {
             Why <span className="text-gold italic">choose us</span>
           </h2>
           <p className="mt-5 max-w-lg text-base leading-relaxed text-muted-foreground">
-            Three decades of relationships, an obsession with craftsmanship, and a
-            portfolio that speaks for itself. This is real estate handled the way it
-            should be.
+            A workforce of licensed engineers, professional officers and skilled
+            tradespeople — backed by our own plant and equipment. This is construction
+            delivered with integrity, quality and craftsmanship.
           </p>
 
           <ul className="mt-8 grid gap-4 sm:grid-cols-2">
@@ -49,7 +49,7 @@ export function Benefits() {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={IMG}
-              alt="A serene, well-lit luxury living room"
+              alt="An Aasif Developers construction site in progress"
               className="relative aspect-[4/3] w-full rounded-3xl object-cover shadow-luxe"
             />
 
@@ -57,17 +57,12 @@ export function Benefits() {
             <div className="absolute inset-x-3 bottom-3 flex items-center justify-between gap-3 rounded-2xl bg-obsidian/85 px-4 py-3 text-obsidian-foreground backdrop-blur sm:inset-x-4 sm:bottom-4 sm:px-5 sm:py-4">
               <div className="min-w-0">
                 <p className="font-display text-lg font-semibold sm:text-2xl">
-                  <CountUp value="100+" /> Employees
+                  <CountUp value="500+" /> Workforce
                 </p>
                 <p className="mt-1 flex flex-wrap items-center gap-x-1.5 text-xs text-obsidian-muted sm:text-sm">
-                  <span className="inline-flex items-center gap-1">
-                    <Star className="size-4 shrink-0 fill-accent text-accent" />
-                    <span className="font-semibold text-obsidian-foreground">
-                      <CountUp value="5.0" />
-                    </span>
-                  </span>
+                  <Star className="size-4 shrink-0 fill-accent text-accent" />
                   <span className="whitespace-nowrap">
-                    (<CountUp value="39.9" />k reviews)
+                    Licensed engineers &amp; skilled crews
                   </span>
                 </p>
               </div>

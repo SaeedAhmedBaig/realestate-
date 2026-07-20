@@ -17,15 +17,16 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: "Asif Developer — Luxury Real Estate & Bespoke Homes",
+  title: "Aasif Developers — Construction & Development | Vision, Creativity, Craftsmanship",
   description:
-    "Asif Developer crafts and curates the world's finest residences. Discover, buy, and rent extraordinary properties in the most sought-after locations.",
+    "Aasif Developers is a Pakistan-based construction company delivering villas, high-rise towers and infrastructure since 2016 for clients including Bahria Town, New Metro City and China Electric Power.",
   keywords: [
-    "luxury real estate",
-    "Asif Developer",
-    "dream home",
-    "property developer",
-    "premium homes",
+    "Aasif Developers",
+    "construction company Pakistan",
+    "villa construction",
+    "Bahria Town contractor",
+    "civil works",
+    "infrastructure construction",
   ],
 };
 
