@@ -1,0 +1,240 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ------------------------------------------------------------------
+   ASIF DEVELOPER — semantic design tokens
+   Palette: warm ivory / obsidian black with a bronze-gold accent.
+   Every colour below is semantic: components never name a raw hue.
+------------------------------------------------------------------ */
+
+:root {
+  --radius: 0.75rem;
+
+  /* Brand palette
+     Primary  — #8A6D3B (bronze)
+     Secondary— #C2A87D (tan)
+     Contrast — #1A1712 (ink)                              */
+
+  /* Surfaces (warm neutrals derived from the palette) */
+  --background: #faf7f1;
+  --foreground: #1a1712;
+  --card: #ffffff;
+  --card-foreground: #1a1712;
+  --popover: #ffffff;
+  --popover-foreground: #1a1712;
+  --muted: #efe8db;
+  --muted-foreground: #6f6656;
+
+  /* Brand */
+  --primary: #8a6d3b;
+  --primary-foreground: #fdfaf3;
+  --secondary: #efe7d7;
+  --secondary-foreground: #3a2f20;
+  --accent: #c2a87d;
+  --accent-foreground: #1a1712;
+
+  /* The inverted panel used by the hero / footer / CTA bands */
+  --obsidian: #1a1712;
+  --obsidian-foreground: #f5efe2;
+  --obsidian-muted: #b6a88f;
+
+  /* Lines & controls */
+  --border: #e6dcc9;
+  --input: #e6dcc9;
+  --ring: #c2a87d;
+
+  /* Status */
+  --destructive: #a33f3e;
+  --destructive-foreground: #ffffff;
+  --success: #3f6b4f;
+  --success-foreground: #ffffff;
+
+  /* Effects */
+  --gold-gradient: linear-gradient(120deg, #8a6d3b 0%, #c2a87d 50%, #8a6d3b 100%);
+  --gold-text: #8a6d3b; /* solid, theme-aware gold used for emphasis text */
+  --shadow-luxe: 0 24px 60px -20px rgb(26 23 18 / 0.2);
+  --shadow-card: 0 2px 8px -2px rgb(26 23 18 / 0.06), 0 12px 32px -12px rgb(26 23 18 / 0.12);
+}
+
+.dark {
+  --background: #100e0a;
+  --foreground: #f5efe2;
+  --card: #191510;
+  --card-foreground: #f5efe2;
+  --popover: #191510;
+  --popover-foreground: #f5efe2;
+  --muted: #201b14;
+  --muted-foreground: #b6a88f;
+
+  --primary: #c2a87d;
+  --primary-foreground: #1a1712;
+  --secondary: #201b14;
+  --secondary-foreground: #f5efe2;
+  --accent: #c2a87d;
+  --accent-foreground: #1a1712;
+
+  --obsidian: #0b0907;
+  --obsidian-foreground: #f5efe2;
+  --obsidian-muted: #b6a88f;
+
+  --border: #2c261b;
+  --input: #2c261b;
+  --ring: #c2a87d;
+
+  --destructive: #c76b6a;
+  --destructive-foreground: #14110b;
+  --success: #7fae91;
+  --success-foreground: #14110b;
+
+  --gold-gradient: linear-gradient(120deg, #8a6d3b 0%, #c2a87d 50%, #8a6d3b 100%);
+  --gold-text: #d8bd83; /* brighter gold for legibility on dark surfaces */
+  --shadow-luxe: 0 24px 60px -20px rgb(0 0 0 / 0.65);
+  --shadow-card: 0 2px 8px -2px rgb(0 0 0 / 0.45), 0 12px 32px -12px rgb(0 0 0 / 0.6);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-obsidian: var(--obsidian);
+  --color-obsidian-foreground: var(--obsidian-foreground);
+  --color-obsidian-muted: var(--obsidian-muted);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-cormorant), ui-serif, Georgia, serif;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 12px);
+
+  --shadow-card: var(--shadow-card);
+  --shadow-luxe: var(--shadow-luxe);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "kern", "liga";
+  }
+
+  ::selection {
+    background: var(--accent);
+    color: var(--accent-foreground);
+  }
+
+  /* Focus ring — consistent everywhere, never removed */
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  /* Section eyebrow — small gold label above a heading */
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.22em] text-primary;
+  }
+
+  .eyebrow::before {
+    content: "";
+    @apply block h-px w-8 bg-primary/50;
+  }
+
+  /* Display headline */
+  .headline {
+    @apply font-display font-light tracking-tight text-balance;
+  }
+
+  /* Gold emphasis text.
+     Solid, theme-aware colour (never background-clip:text) so italic serif
+     swashes and descenders can never be clipped, on any screen. */
+  .text-gold {
+    color: var(--gold-text);
+  }
+
+  .headline {
+    line-height: 1.12;
+  }
+
+  /* Hairline gold rule */
+  .rule-gold {
+    @apply h-px w-full;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  }
+
+  /* Glass panel used over photography */
+  .glass {
+    background: color-mix(in srgb, var(--card) 78%, transparent);
+    backdrop-filter: blur(16px) saturate(140%);
+    -webkit-backdrop-filter: blur(16px) saturate(140%);
+  }
+
+  .container-luxe {
+    @apply mx-auto w-full max-w-[1280px] px-5 sm:px-8 lg:px-12;
+  }
+}
+
+@layer utilities {
+  .animate-marquee {
+    animation: marquee 40s linear infinite;
+  }
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  /* Hide scrollbar but keep scrolling */
+  .no-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
