@@ -20,8 +20,12 @@ export function Testimonials() {
 
           <div className="relative px-6 pb-8 pt-16 sm:px-12 sm:pt-20">
             <Reveal>
-              <span className="eyebrow !text-accent">Our clients</span>
-              <h2 className="headline mt-4 max-w-2xl text-4xl text-obsidian-foreground sm:text-5xl">
+              <div className="flex items-center gap-3">
+                <span className="index-num">06</span>
+                <span className="h-px w-8 bg-accent/50" />
+                <span className="kicker !text-accent">Our clients</span>
+              </div>
+              <h2 className="headline mt-4 max-w-2xl text-[clamp(2rem,4vw,3.25rem)] text-obsidian-foreground">
                 Trusted by leading <span className="text-gold italic">developers</span>
               </h2>
             </Reveal>

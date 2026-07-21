@@ -1,6 +1,8 @@
 "use client";
 
 import * as React from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme-toggle";
@@ -9,9 +11,10 @@ import { NAV_LINKS } from "@/lib/data";
 import { cn } from "@/lib/utils";
 
 export function Navbar() {
+  const pathname = usePathname();
+  const isHome = pathname === "/";
   const [scrolled, setScrolled] = React.useState(false);
   const [open, setOpen] = React.useState(false);
-  const [active, setActive] = React.useState("#home");
 
   React.useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -27,7 +30,11 @@ export function Navbar() {
     };
   }, [open]);
 
-  const overHero = !scrolled && !open;
+  // Only the homepage has a dark video hero the bar can float over.
+  const overHero = isHome && !scrolled && !open;
+
+  const isActive = (href: string) =>
+    href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   return (
     <header
@@ -44,12 +51,11 @@ export function Navbar() {
         <ul className="hidden items-center gap-1 lg:flex">
           {NAV_LINKS.map((link) => (
             <li key={link.href}>
-              <a
+              <Link
                 href={link.href}
-                onClick={() => setActive(link.href)}
                 className={cn(
                   "relative rounded-full px-4 py-2 text-sm font-medium transition-colors",
-                  active === link.href
+                  isActive(link.href)
                     ? overHero
                       ? "text-accent"
                       : "text-primary"
@@ -59,10 +65,10 @@ export function Navbar() {
                 )}
               >
                 {link.label}
-                {active === link.href && (
+                {isActive(link.href) && (
                   <span className="absolute inset-x-4 -bottom-0.5 h-px [background:var(--gold-gradient)]" />
                 )}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
@@ -79,14 +85,15 @@ export function Navbar() {
             size="sm"
             className={cn(
               "hidden md:inline-flex",
-              overHero && "border-white/40 text-white hover:bg-white hover:text-obsidian hover:border-white"
+              overHero &&
+                "border-white/40 text-white hover:bg-white hover:text-obsidian hover:border-white"
             )}
             asChild
           >
-            <a href="#projects">Projects</a>
+            <Link href="/projects">Projects</Link>
           </Button>
           <Button variant="gold" size="sm" className="hidden md:inline-flex" asChild>
-            <a href="#contact">Get a Quote</a>
+            <Link href="/quote">Get a Quote</Link>
           </Button>
 
           <button
@@ -110,34 +117,36 @@ export function Navbar() {
       <div
         className={cn(
           "overflow-hidden border-t border-border bg-background/95 backdrop-blur-xl transition-[max-height,opacity] duration-500 lg:hidden",
-          open ? "max-h-[26rem] opacity-100" : "max-h-0 opacity-0"
+          open ? "max-h-[28rem] opacity-100" : "max-h-0 opacity-0"
         )}
       >
         <ul className="container-luxe flex flex-col gap-1 py-4">
           {NAV_LINKS.map((link) => (
             <li key={link.href}>
-              <a
+              <Link
                 href={link.href}
-                onClick={() => {
-                  setActive(link.href);
-                  setOpen(false);
-                }}
-                className="block rounded-xl px-4 py-3 text-base font-medium text-foreground/80 hover:bg-muted hover:text-foreground"
+                onClick={() => setOpen(false)}
+                className={cn(
+                  "block rounded-xl px-4 py-3 text-base font-medium hover:bg-muted",
+                  isActive(link.href)
+                    ? "text-primary"
+                    : "text-foreground/80 hover:text-foreground"
+                )}
               >
                 {link.label}
-              </a>
+              </Link>
             </li>
           ))}
           <li className="mt-2 flex items-center gap-3 px-4">
             <Button variant="outline" className="flex-1" asChild>
-              <a href="#projects" onClick={() => setOpen(false)}>
+              <Link href="/projects" onClick={() => setOpen(false)}>
                 Projects
-              </a>
+              </Link>
             </Button>
             <Button variant="gold" className="flex-1" asChild>
-              <a href="#contact" onClick={() => setOpen(false)}>
+              <Link href="/quote" onClick={() => setOpen(false)}>
                 Get a Quote
-              </a>
+              </Link>
             </Button>
             <ThemeToggle />
           </li>

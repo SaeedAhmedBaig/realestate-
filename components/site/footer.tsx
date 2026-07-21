@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import Link from "next/link";
 import {
   Globe,
   Instagram,
@@ -16,16 +17,16 @@ import { Logo } from "@/components/site/logo";
 import { COMPANY as CO } from "@/lib/data";
 
 const COMPANY = [
-  { label: "About us", href: "#about" },
-  { label: "Services", href: "#services" },
-  { label: "Projects", href: "#projects" },
-  { label: "Our clients", href: "#clients" },
+  { label: "About us", href: "/about" },
+  { label: "Services", href: "/services" },
+  { label: "Projects", href: "/projects" },
+  { label: "Our clients", href: "/#clients" },
 ];
 const RESOURCES = [
-  { label: "Why choose us", href: "#benefits" },
-  { label: "Our work", href: "#expertise" },
-  { label: "Get a quote", href: "#contact" },
-  { label: "Contact us", href: "#contact" },
+  { label: "Get a quote", href: "/quote" },
+  { label: "Why choose us", href: "/#benefits" },
+  { label: "Our work", href: "/#expertise" },
+  { label: "Contact us", href: "/contact" },
 ];
 const SOCIALS = [
   { label: "Instagram", icon: Instagram, href: CO.social.instagram },
@@ -176,12 +177,12 @@ function FooterCol({
       <ul className="mt-5 space-y-3">
         {links.map((l) => (
           <li key={l.label}>
-            <a
+            <Link
               href={l.href}
               className="text-sm text-obsidian-muted transition-colors hover:text-accent"
             >
               {l.label}
-            </a>
+            </Link>
           </li>
         ))}
       </ul>

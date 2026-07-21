@@ -18,8 +18,12 @@ export function Benefits() {
     <section id="benefits" className="py-24">
       <div className="container-luxe grid items-center gap-14 lg:grid-cols-2">
         <Reveal>
-          <span className="eyebrow">Benefits</span>
-          <h2 className="headline mt-4 text-4xl text-foreground sm:text-5xl">
+          <div className="flex items-center gap-3">
+            <span className="index-num">04</span>
+            <span className="h-px w-8 bg-primary/40" />
+            <span className="kicker">Benefits</span>
+          </div>
+          <h2 className="headline mt-4 text-[clamp(2rem,4vw,3.25rem)] text-foreground">
             Why <span className="text-gold italic">choose us</span>
           </h2>
           <p className="mt-5 max-w-lg text-base leading-relaxed text-muted-foreground">

@@ -170,9 +170,53 @@
     @apply block h-px w-8 bg-primary/50;
   }
 
+  /* Kicker — refined uppercase label, no leading rule (pairs with index) */
+  .kicker {
+    @apply text-xs font-semibold uppercase tracking-[0.3em] text-primary;
+  }
+
+  /* Editorial section index numeral, e.g. "01" */
+  .index-num {
+    @apply font-display text-lg font-medium tabular-nums;
+    color: var(--gold-text);
+  }
+
   /* Display headline */
   .headline {
     @apply font-display font-light tracking-tight text-balance;
+  }
+
+  /* Consistent card surface + signature hover */
+  .card-luxe {
+    @apply relative overflow-hidden rounded-2xl border border-border bg-card shadow-card transition-all duration-500;
+  }
+  .card-luxe:hover {
+    @apply -translate-y-1.5 shadow-luxe;
+    border-color: color-mix(in srgb, var(--primary) 35%, var(--border));
+  }
+
+  /* Animated gold underline for inline text links */
+  .link-gold {
+    @apply relative inline-flex items-center gap-2 text-sm font-medium text-primary;
+  }
+  .link-gold::after {
+    content: "";
+    @apply absolute -bottom-0.5 left-0 h-px w-full origin-right scale-x-0 transition-transform duration-300;
+    background: var(--gold-gradient);
+  }
+  .link-gold:hover::after {
+    @apply origin-left scale-x-100;
+  }
+
+  /* Framed image — thin gold inset + luxe shadow */
+  .frame-luxe {
+    @apply relative overflow-hidden rounded-[1.75rem] shadow-luxe;
+    box-shadow: var(--shadow-luxe), inset 0 0 0 1px color-mix(in srgb, var(--accent) 30%, transparent);
+  }
+  .frame-luxe::after {
+    content: "";
+    @apply pointer-events-none absolute inset-3 rounded-[1.25rem];
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 22%, transparent);
   }
 
   /* Gold emphasis text.
@@ -205,8 +249,25 @@
 }
 
 @layer utilities {
+  /* Subtle blueprint grid for dark editorial panels */
+  .texture-grid {
+    background-image:
+      linear-gradient(color-mix(in srgb, var(--accent) 8%, transparent) 1px, transparent 1px),
+      linear-gradient(90deg, color-mix(in srgb, var(--accent) 8%, transparent) 1px, transparent 1px);
+    background-size: 44px 44px;
+  }
+
+  /* Duotone-ish ink wash for photography inside dark sections */
+  .img-ink {
+    filter: grayscale(0.15) contrast(1.02);
+  }
+
   .animate-marquee {
     animation: marquee 40s linear infinite;
+  }
+
+  .animate-marquee-reverse {
+    animation: marquee 40s linear infinite reverse;
   }
 
   @keyframes marquee {

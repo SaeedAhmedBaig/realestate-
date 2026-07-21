@@ -40,37 +40,80 @@ export const COMPANY = {
 };
 
 export const NAV_LINKS = [
-  { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
-  { label: "Services", href: "#services" },
-  { label: "Projects", href: "#projects" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
+  { label: "Services", href: "/services" },
+  { label: "Projects", href: "/projects" },
+  { label: "Contact", href: "/contact" },
 ];
 
 /* ------------------------------------------------------------------ */
 /* Services — derived from the scope of work across projects          */
 /* ------------------------------------------------------------------ */
 
-export const SERVICES: { title: string; icon: LucideIcon; desc: string }[] = [
+export const SERVICES: {
+  slug: string;
+  title: string;
+  icon: LucideIcon;
+  image: string;
+  desc: string;
+  scope: string[];
+}[] = [
   {
+    slug: "civil-structural",
     title: "Civil & Structural",
     icon: Building2,
+    image: U("photo-1621905251189-08b45d6a269e"),
     desc: "Excavation, foundations, RCC columns, beams and masonry executed to specification.",
+    scope: [
+      "Excavation, termite proofing & granular filling",
+      "PCC, steel reinforcement & RCC — columns, beams, lintels, water tanks",
+      "Block masonry, plaster works & PCC flooring",
+      "Waterproofing, backfilling & roof insulation",
+      "Boundary walls, staircases & structural earthworks",
+    ],
   },
   {
+    slug: "architectural-finishing",
     title: "Architectural Finishing",
     icon: Hammer,
+    image: U("photo-1618221195710-dd6b41faaea6"),
     desc: "Plaster, tiling, marble, imported doors, kitchens, wardrobes and premium paintwork.",
+    scope: [
+      "Tiles, granite & marble supply and installation",
+      "MDF imported doors, kitchens & wardrobes with hardware",
+      "Suspended & gypsum ceilings at design height",
+      "Aluminium windows & building façade",
+      "Skimming and oil-emulsion paint finishing",
+    ],
   },
   {
+    slug: "mep-electrical",
     title: "MEP & Electrical",
     icon: Zap,
+    image: U("photo-1473341304170-971dccb5ac1e"),
     desc: "Plumbing, wiring, HVAC, CCTV, fire detection, lifts and complete building services.",
+    scope: [
+      "UPVC & PPRC plumbing and sanitary works to layout",
+      "Wiring, distribution boards, main & earthing cables",
+      "HVAC for controlled space temperature",
+      "CCTV, fire & smoke detection, emergency lighting",
+      "Lifts, access control & video door-entry systems",
+    ],
   },
   {
+    slug: "infrastructure",
     title: "Infrastructure",
     icon: TrafficCone,
+    image: U("photo-1541888946425-d81bb19240f5"),
     desc: "Roads, land leveling, sector development, earthworks and grid substation works.",
+    scope: [
+      "Road construction, land leveling & sector development",
+      "Topographic survey, backfill spreading & compaction",
+      "Grid substation civil works (500/220/132 Kv)",
+      "Stone pitching & compaction testing above 95%",
+      "Turnkey site camps, boundary walls & security towers",
+    ],
   },
 ];
 
@@ -112,14 +155,25 @@ export const PROJECTS = [
     tag: "Villas",
   },
   {
-    id: "AD-P1011",
-    title: "Bahria Precinct 10 & 11",
+    id: "AD-P10A",
+    title: "Bahria Villas — Precinct 10A",
     client: "Bahria Town",
     location: "Karachi",
     type: "200 Sq.Yd",
-    scope: "200+ Villas",
-    value: "PKR 414.9M",
+    scope: "62 Villas",
+    value: "PKR 193.4M",
     image: U("photo-1600585154340-be6161a56a0c"),
+    tag: "Villas",
+  },
+  {
+    id: "AD-P31",
+    title: "Bahria Villas — Precinct 31",
+    client: "Bahria Town",
+    location: "Karachi",
+    type: "200 Sq.Yd",
+    scope: "133 Villas",
+    value: "PKR 414.9M",
+    image: U("photo-1600607687939-ce8a6c25118c"),
     tag: "Villas",
   },
   {
@@ -153,6 +207,17 @@ export const PROJECTS = [
     scope: "Earthworks & Camp",
     value: "PKR 261.3M",
     image: U("photo-1473341304170-971dccb5ac1e"),
+    tag: "Infrastructure",
+  },
+  {
+    id: "AD-TCO",
+    title: "Turnkey Camp Office",
+    client: "China Electric Power",
+    location: "Sheikhupura",
+    type: "Turnkey",
+    scope: "Camp & Facilities",
+    value: "PKR 61.2M",
+    image: U("photo-1541888946425-d81bb19240f5"),
     tag: "Infrastructure",
   },
 ];
@@ -247,4 +312,52 @@ export const CLIENTS = [
     tag: "Infrastructure",
     image: U("photo-1473341304170-971dccb5ac1e", 400),
   },
+];
+
+/* ------------------------------------------------------------------ */
+/* About page — CEO message, mission, values                          */
+/* ------------------------------------------------------------------ */
+
+export const CEO_MESSAGE = [
+  "Since 2016, Aasif Developers has become competitive in the field of construction. Our operation is organised and well delivered, with passion and commitment.",
+  "Our initial work concentrated on civil works — structural and masonry — which shaped us into specialists. To widen our scope we ventured into architectural finishing of buildings and villas, roads, land leveling and sector development.",
+  "A workforce of licensed engineers, professional officers and skilled workers, combined with technical expertise, produces distinction in the construction industry.",
+];
+
+export const MISSION =
+  "Our mission is to exceed the expectations of our clients by delivering high-quality construction projects — built on time, on budget, and to the highest standards of safety and sustainability. Through excellence and a relentless pursuit of customer satisfaction, we aim to be the construction partner of choice.";
+
+export const VALUES = [
+  "Integrity as the basis of every relationship",
+  "Focus on the consumer",
+  "Respect for people",
+  "Developing our people",
+  "High performance, always",
+  "Quality products, excellent process",
+  "Constant innovative spirit",
+  "Sustainable growth",
+  "Global vision, local agility",
+  "Commitment to diversity",
+];
+
+/* ------------------------------------------------------------------ */
+/* Get-a-quote form options                                           */
+/* ------------------------------------------------------------------ */
+
+export const QUOTE_PROJECT_TYPES = [
+  "Villa Construction",
+  "High-rise / Tower",
+  "Commercial Building",
+  "Infrastructure / Civil Works",
+  "Renovation / Fit-out",
+  "Other",
+];
+
+export const QUOTE_BUDGETS = [
+  "Under PKR 10M",
+  "PKR 10M – 50M",
+  "PKR 50M – 150M",
+  "PKR 150M – 500M",
+  "Above PKR 500M",
+  "Not sure yet",
 ];

@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import Link from "next/link";
 import useEmblaCarousel from "embla-carousel-react";
 import { ArrowRight, ArrowLeft } from "lucide-react";
 import { PROJECTS } from "@/lib/data";
@@ -30,13 +31,17 @@ export function Recommendations() {
   }, [embla, onSelect]);
 
   return (
-    <section id="projects" className="py-16">
+    <section id="projects" className="py-20 sm:py-28">
       <div className="container-luxe">
         <Reveal>
           <div className="flex flex-wrap items-end justify-between gap-6">
-            <div>
-              <span className="eyebrow">Our portfolio</span>
-              <h2 className="headline mt-4 text-4xl text-foreground sm:text-5xl">
+            <div className="max-w-2xl">
+              <div className="flex items-center gap-3">
+                <span className="index-num">03</span>
+                <span className="h-px w-8 bg-primary/40" />
+                <span className="kicker">Our portfolio</span>
+              </div>
+              <h2 className="headline mt-4 text-[clamp(2rem,4vw,3.25rem)] text-foreground">
                 Featured <span className="text-gold italic">projects</span>
               </h2>
             </div>
@@ -51,12 +56,9 @@ export function Recommendations() {
                 disabled={!canNext}
                 onClick={() => embla?.scrollNext()}
               />
-              <a
-                href="#contact"
-                className="ml-1 inline-flex items-center gap-2 text-sm font-medium text-primary hover:gap-3"
-              >
-                Explore All <ArrowRight className="size-4" />
-              </a>
+              <Link href="/projects" className="link-gold ml-1">
+                View all <ArrowRight className="size-4" />
+              </Link>
             </div>
           </div>
         </Reveal>

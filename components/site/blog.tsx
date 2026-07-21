@@ -1,27 +1,23 @@
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { GALLERY } from "@/lib/data";
 import { Reveal } from "@/components/site/reveal";
+import { Section } from "@/components/site/section";
+import { SectionHeading } from "@/components/site/section-heading";
 import { cn } from "@/lib/utils";
 
 export function Blog() {
   return (
-    <section id="expertise" className="py-16">
-      <div className="container-luxe">
-        <Reveal>
-          <div className="flex flex-wrap items-end justify-between gap-6">
-            <h2 className="headline text-4xl text-foreground sm:text-5xl">
-              A closer look at <span className="text-gold italic">our work</span>
-            </h2>
-            <a
-              href="#projects"
-              className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:gap-3"
-            >
-              View projects <ArrowRight className="size-4" />
-            </a>
-          </div>
-        </Reveal>
+    <Section id="expertise" tone="muted" className="border-y border-border">
+      <SectionHeading
+        index="05"
+        kicker="Our work"
+        title="A closer look at"
+        highlight="our craft"
+        description="Structural works, finishing, infrastructure and turnkey villas — a glimpse of what we deliver on site."
+        action={{ label: "View projects", href: "/projects" }}
+      />
 
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {GALLERY.map((item, i) => (
             <Reveal
               key={item.title}
@@ -62,8 +58,7 @@ export function Blog() {
               </article>
             </Reveal>
           ))}
-        </div>
       </div>
-    </section>
+    </Section>
   );
 }

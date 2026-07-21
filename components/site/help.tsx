@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ABOUT_POINTS } from "@/lib/data";
@@ -14,8 +15,12 @@ export function Help() {
     <section id="about" className="py-24">
       <div className="container-luxe grid items-center gap-14 lg:grid-cols-2">
         <Reveal>
-          <span className="eyebrow">About Aasif Developers</span>
-          <h2 className="headline mt-4 text-4xl text-foreground sm:text-5xl">
+          <div className="flex items-center gap-3">
+            <span className="index-num">02</span>
+            <span className="h-px w-8 bg-primary/40" />
+            <span className="kicker">About Aasif Developers</span>
+          </div>
+          <h2 className="headline mt-4 text-[clamp(2rem,4vw,3.25rem)] text-foreground">
             We build your vision with{" "}
             <span className="text-gold italic">craftsmanship</span>
           </h2>
@@ -41,7 +46,7 @@ export function Help() {
           </ul>
 
           <Button variant="primary" size="lg" className="mt-9" asChild>
-            <a href="#projects">Explore our projects</a>
+            <Link href="/projects">Explore our projects</Link>
           </Button>
         </Reveal>
 

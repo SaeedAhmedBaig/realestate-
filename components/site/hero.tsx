@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { Star, ArrowRight, ArrowDown, HardHat } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CountUp } from "@/components/site/count-up";
@@ -66,9 +67,9 @@ export function Hero() {
           {/* CTAs */}
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <Button variant="gold" size="lg" asChild>
-              <a href="#projects">
+              <Link href="/projects">
                 Explore Projects <ArrowRight className="size-4" />
-              </a>
+              </Link>
             </Button>
             <Button
               variant="outline"
@@ -76,7 +77,7 @@ export function Hero() {
               className="border-white/40 text-white hover:border-white hover:bg-white hover:text-obsidian"
               asChild
             >
-              <a href="#contact">Get a Quote</a>
+              <Link href="/quote">Get a Quote</Link>
             </Button>
           </div>
 
